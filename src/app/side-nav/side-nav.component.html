@@ -3,9 +3,9 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/poems">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item (click)="changeCurrentNav('home')"> Accueil </a>
+      <a mat-list-item (click)="changeCurrentNav('poems')"> Poèmes </a>
+      <a mat-list-item (click)="changeCurrentNav('other')">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class=".content">
@@ -16,7 +16,10 @@
       </button>
       <span>Joyeux Anniversaire !!!</span>
     </mat-toolbar>
-    <router-outlet>
-    </router-outlet>
+
+    <app-poems *ngIf="this.currentNav == 'poems'">
+    </app-poems>
+    <app-home-component *ngIf="this.currentNav == 'home'">
+    </app-home-component>
   </mat-sidenav-content>
 </mat-sidenav-container>

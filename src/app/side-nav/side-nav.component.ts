@@ -18,4 +18,10 @@ export class SideNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  currentNav: string = "home";
+
+  changeCurrentNav(newNav: string) {
+    this.currentNav = newNav;
+  }
+
 }

@@ -14,12 +14,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { PoemsComponent } from './poems/poems.component';
+import { MatCardModule } from '@angular/material/card';
+import { PoemsEffects } from './store/poems.effects';
+import { poemsReducer } from './store/poems.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponentComponent,
-    SideNavComponent
+    SideNavComponent,
+    PoemsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +36,11 @@ import { EffectsModule } from '@ngrx/effects';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    MatCardModule,
+    StoreModule.forRoot({ 'poem':poemsReducer}, {}),
+    EffectsModule.forRoot([
+      PoemsEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
