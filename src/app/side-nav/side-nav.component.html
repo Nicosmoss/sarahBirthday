@@ -3,9 +3,9 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item (click)="changeCurrentNav('home')"> Accueil </a>
-      <a mat-list-item (click)="changeCurrentNav('poems')"> Poèmes </a>
-      <a mat-list-item (click)="changeCurrentNav('other')">Link 3</a>
+      <a mat-list-item (click)="changeCurrentNav('home')" [ngClass]="this.currentNav == 'home' ? 'active' : ''"> Accueil </a>
+      <a mat-list-item (click)="changeCurrentNav('poems') " [ngClass]="this.currentNav == 'poems' ? 'active' : ''"> Poèmes </a>
+      <a mat-list-item (click)="changeCurrentNav('other')" [ngClass]="this.currentNav == 'other' ? 'active' : ''">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class=".content">
@@ -19,7 +19,7 @@
 
     <app-poems *ngIf="this.currentNav == 'poems'">
     </app-poems>
-    <app-home-component *ngIf="this.currentNav == 'home'">
+    <app-home-component *ngIf="this.currentNav == 'home'" (moveToPoem)="this.changeCurrentNav('poems')">
     </app-home-component>
   </mat-sidenav-content>
 </mat-sidenav-container>
