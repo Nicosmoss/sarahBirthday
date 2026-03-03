@@ -15,11 +15,9 @@ export class PoemsEffects {
   loadNextPoem$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadNextPoem),
-      switchMap(() =>
-        of(loadNextPoemSuccess({
-          poem: this.poemsService.getNextPoem()
-        })
-        )
+      switchMap(() => this.poemsService.getNextPoem().pipe(
+        map((poem) => loadNextPoemSuccess({ poem: poem }))
+      )
       )
     )
   })

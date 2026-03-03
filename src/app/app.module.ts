@@ -18,13 +18,15 @@ import { PoemsComponent } from './poems/poems.component';
 import { MatCardModule } from '@angular/material/card';
 import { PoemsEffects } from './store/poems.effects';
 import { poemsReducer } from './store/poems.reducer';
+import { LoveComponent } from './love/love.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponentComponent,
     SideNavComponent,
-    PoemsComponent
+    PoemsComponent,
+    LoveComponent
   ],
   imports: [
     BrowserModule,

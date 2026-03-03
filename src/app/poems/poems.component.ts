@@ -15,7 +15,6 @@ export class PoemsComponent implements OnInit {
   constructor(private store:Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(loadNextPoem());
   }
 
   newPoem() {

@@ -15,3 +15,9 @@
     </button>
   </mat-card-actions>
 </mat-card>
+
+<mat-card *ngIf="(currentPoem$|async)?.author === 'Alfred de Musset'" id="tips">
+  <mat-card-content>
+    Tu as vu ce poème c'est écrit par Alfred le frérot de ta rue =)
+  </mat-card-content>
+</mat-card>
