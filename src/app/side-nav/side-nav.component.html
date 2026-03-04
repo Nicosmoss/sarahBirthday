@@ -3,11 +3,11 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item (click)="changeCurrentNav('home')" [ngClass]="this.currentNav == 'home' ? 'active' : ''"> Accueil
+      <a mat-list-item (click)="changeCurrentNav('home', false)" [ngClass]="this.currentNav == 'home' ? 'active' : ''"> Accueil
       </a>
-      <a mat-list-item (click)="changeCurrentNav('poems') " [ngClass]="this.currentNav == 'poems' ? 'active' : ''">
+      <a mat-list-item (click)="changeCurrentNav('poems', false) " [ngClass]="this.currentNav == 'poems' ? 'active' : ''">
         Poèmes </a>
-      <a mat-list-item (click)="changeCurrentNav('love')" [ngClass]="this.currentNav == 'love' ? 'active' : ''">Love</a>
+      <a mat-list-item (click)="changeCurrentNav('love', false)" [ngClass]="this.currentNav == 'love' ? 'active' : ''">Love</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class=".content">
@@ -21,7 +21,7 @@
 
     <app-poems *ngIf="this.currentNav == 'poems'">
     </app-poems>
-    <app-home-component *ngIf="this.currentNav == 'home'" (moveToPoem)="this.changeCurrentNav('poems')">
+    <app-home-component *ngIf="this.currentNav == 'home'" (moveToPoem)="this.changeCurrentNav('poems', true)">
     </app-home-component>
     <app-love *ngIf="this.currentNav == 'love'">
     </app-love>

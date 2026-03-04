@@ -28,8 +28,9 @@ export class SideNavComponent implements OnInit{
 
    currentNav: string = "home";
 
-  changeCurrentNav(newNav: string) {
-    this.drawer.toggle();
+  changeCurrentNav(newNav: string, flag:boolean) {
+    if ( !flag)
+      this.drawer.toggle();
     this.currentNav = newNav;
   }
 
